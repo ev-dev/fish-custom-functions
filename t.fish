@@ -7,6 +7,6 @@ function t --argument-names 'limit' 'dirChoice'
 		tree -L 3 --filelimit $limit $dirChoice
 	# else the input $limit actually implys directory
 	else
-		tree -L 3 --filelimit $limit
+		tree -C -L 3 --filelimit $limit
 	end
 end
