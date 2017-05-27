@@ -1,0 +1,51 @@
+function speed
+	touch ~/.config/speedtests/test1
+
+	if test -z $argv
+		set loopTimes 3
+	else if test $argv -lt 2
+		set loopTimes 1
+	else
+		set loopTimes $argv
+	end
+
+	spin "for x in (seq $loopTimes)
+		speedtest >>~/.config/speedtests/test1	
+	end"
+
+#	set DLspeed ''
+
+	touch ~/.config/speedtests/formated	
+	set arr (cat ~/.config/speedtests/test1 | string split -r  " Mbit/s")
+
+	set up (echo $arr[1] | string sub -s 9)
+	set down (echo $arr[4] | string sub -s 11)
+
+	set up (echo $up | string split -r ".")[1]
+	set down (echo $down | string split -r ".")[1]
+
+	echo "Download Speed: $down Mbps"
+	echo "Upload Speed: $up Mbps"
+	set upval "$up"
+	set operation (math "$upval" + "$testval")
+	echo "Double Upload: $operation Mbps"
+#	set up ((eval $up) / 2)
+#	echo "Avg Upload Speed: $up Mbps"
+	
+#	echo "   "
+#	echo "   "
+#	for i in $arr
+#		echo "      "
+#		echo "--------------------"
+#		echo "Individual element: "
+#		echo $i
+#		echo "--------------------"
+#		echo "    "		
+#	end
+#	touch ~/.config/speedtests/temp
+#	echo "$DLspeed" > ~/.config/speedtests/temp
+#	cat ~/.config/speedtests/temp
+#	cat	~/.config/speedtests/formated
+	rm ~/.config/speedtests/*
+end
+	

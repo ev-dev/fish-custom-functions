@@ -1,0 +1,1 @@
+/home/ev-yak/.config/fisherman/await/functions/await.fish

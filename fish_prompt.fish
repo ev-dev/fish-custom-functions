@@ -1,0 +1,1 @@
+/home/ev-yak/.config/fisherman/cbjohnson/fish_prompt.fish

@@ -1,0 +1,1 @@
+/home/ev-yak/.config/fisherman/menu/menu.fish
