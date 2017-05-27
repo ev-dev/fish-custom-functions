@@ -1,3 +1,3 @@
 function br
-	git branch --list
+	git branch --list -a
 end
